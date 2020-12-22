@@ -9,9 +9,9 @@ namespace AulaPOO_ProjetoDeProdutos.Classes
         public string NomeProduto { get; set; }
         public float Preco { get; set; }
         public DateTime DataCadastro { get; set; }
-        public Marca Marca { get; set; }
-        public Usuario CadastradoPor { get; set; }
-        public List<Produto> ListaDeProdutos { get; set; }
+        public Marca Marca = new Marca();
+        public Usuario CadastradoPor = new Usuario();
+        public List<Produto> ListaDeProdutos = new List<Produto>();
 
         public void Cadastrar(){
 
