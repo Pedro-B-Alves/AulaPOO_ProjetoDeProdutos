@@ -10,6 +10,10 @@ namespace AulaPOO_ProjetoDeProdutos.Classes
         DateTime DataCadastro { get; set; }
         public List<Marca> Marcas = new List<Marca>();
 
+        public void AdicionarNaLista(Marca marca){
+            Marcas.Add(marca);
+        }
+
         public Marca CadastrarMarca(){
 
             Marca novaMarca = new Marca();
@@ -29,12 +33,14 @@ namespace AulaPOO_ProjetoDeProdutos.Classes
 
         public void Listar(){
 
+            Console.ForegroundColor = ConsoleColor.Green;
             foreach (Marca item in Marcas)
             {
                 Console.WriteLine($"Código: {item.Codigo}");
                 Console.WriteLine($"Marca: {item.NomeMarca}");
                 Console.WriteLine($"Data do Cadastro: {item.DataCadastro}");
             }
+            Console.ResetColor();
         }
 
         public void Deletar(int cod){

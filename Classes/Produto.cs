@@ -13,7 +13,7 @@ namespace AulaPOO_ProjetoDeProdutos.Classes
         public Usuario CadastradoPor = new Usuario();
         public List<Produto> ListaDeProdutos = new List<Produto>();
 
-        public void Cadastrar(){
+        public void Cadastrar(Marca marcaPrincipal){
 
             Produto novoProduto = new Produto();
 
@@ -30,6 +30,8 @@ namespace AulaPOO_ProjetoDeProdutos.Classes
 
             // Atribuímos nossa marca através de um método criado para cadastro
             novoProduto.Marca = Marca.CadastrarMarca();
+
+            marcaPrincipal.AdicionarNaLista(novoProduto.Marca);
 
             // Atribuimos o usuário através do método construtor
             novoProduto.CadastradoPor = new Usuario();

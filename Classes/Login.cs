@@ -8,8 +8,6 @@ namespace AulaPOO_ProjetoDeProdutos.Classes
 
         public Login(){
 
-            Console.ResetColor();
-
             Usuario user = new Usuario();
             
             Logar(user);
@@ -43,7 +41,7 @@ namespace AulaPOO_ProjetoDeProdutos.Classes
                 switch (opcao)
                 {
                     case "1":
-                        produto.Cadastrar();
+                        produto.Cadastrar(marca);
                         break;
 
                     case "2":
@@ -53,7 +51,7 @@ namespace AulaPOO_ProjetoDeProdutos.Classes
                     case "3":
                         Console.WriteLine("Digite um código para excluir:");
                         int cod = int.Parse(Console.ReadLine());
-                        marca.Deletar(cod);
+                        produto.Deletar(cod);
                         break;
 
                     case "4":
@@ -70,7 +68,14 @@ namespace AulaPOO_ProjetoDeProdutos.Classes
                         marca.Deletar(codMarca);
                         break;
 
+                    case "0":
+                        Console.WriteLine("Volte Sempre");
+                        break;
+
                     default:
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Digite uma opção valida");
+                        Console.ResetColor();
                         break;
                 }
                 
@@ -87,9 +92,13 @@ namespace AulaPOO_ProjetoDeProdutos.Classes
             
             if (emailLogin == usuario.Email && senhaLogin == usuario.Senha){
                 Logado = true;
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Login efetuado com sucesso!");
+                Console.ResetColor();
             }else{
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Falha ao logar na aplicação");
+                Console.ResetColor();
             }
         }
 
